@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Azure DevOps Branch Name Generator</title>
+  <link rel="stylesheet" type="text/css" href="css/popup.css">
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div class="container">
+    <h1>Branch Name Generator</h1>
+    
+    <div class="form-group">
+      <label for="pr-type">Tipo do PR:</label>
+      <select id="pr-type">
+        <option value="hotfix">hotfix</option>
+        <option value="fix">fix</option>
+        <option value="feat" selected>feat</option>
+        <option value="chore">chore</option>
+      </select>
+    </div>
+
+    <div class="info-section">
+      <div class="info-row">
+        <span class="label">Número da Task:</span>
+        <span id="task-number" class="value">-</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Título:</span>
+        <span id="task-title" class="value">-</span>
+      </div>
+    </div>
+
+    <div class="branch-section">
+      <h2>Nome da Branch</h2>
+      <div class="branch-name" id="branch-name">-</div>
+      <button id="copy-button">Copiar</button>
+    </div>
+
+    <div id="status-message"></div>
+  </div>
+
+  <script src="js/popup.js"></script>
+</body>
+</html>

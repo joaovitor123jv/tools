@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Azure DevOps Branch Name Generator",
+  "version": "1.0",
+  "description": "Gera nomes de branch baseados em tasks do Azure DevOps",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://dev.azure.com/*",
+    "https://*.visualstudio.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://dev.azure.com/*/*/workitems/edit/*",
+        "https://dev.azure.com/*/*/_workitems/edit/*",
+        "https://dev.azure.com/*/*/_boards/*",
+        "https://dev.azure.com/*/*/backlogs/*",
+        "https://*.visualstudio.com/*/*/_workitems/edit/*",
+        "https://*.visualstudio.com/*/*/_boards/*", 
+        "https://*.visualstudio.com/*/*/backlogs/*"
+      ],
+      "js": ["js/content.js"]
+    }
+  ]
+}

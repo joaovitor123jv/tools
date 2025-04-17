@@ -1,0 +1,78 @@
+{
+  "name": "nestjs-routes-explorer",
+  "displayName": "NestJS Routes Explorer",
+  "description": "View and navigate NestJS routes in your project",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/*.controller.ts",
+    "onView:nestjsRoutes"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nestjs-routes-explorer",
+          "title": "NestJS Routes",
+          "icon": "media/nestjs-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "nestjs-routes-explorer": [
+        {
+          "id": "nestjsRoutes",
+          "name": "Routes"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "nestjs-routes-explorer.refreshRoutes",
+        "title": "Refresh NestJS Routes",
+        "icon": {
+          "light": "media/refresh-light.svg", 
+          "dark": "media/refresh-dark.svg"
+        }
+      },
+      {
+        "command": "nestjs-routes-explorer.openRouteDefinition",
+        "title": "Open Route Definition"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "nestjs-routes-explorer.refreshRoutes",
+          "when": "view == nestjsRoutes",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.99.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^9.23.0",
+    "typescript": "^5.8.2",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
